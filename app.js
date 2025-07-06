@@ -1,13 +1,15 @@
 const express=require("express");
 const userRouter = require("./routes/userRoutes");
+const cors=require('cors')
+
 
 
 const app=express()
 app.use(express.json());
-// app.use(cors({
-//       origin: 'https://resilient-brioche-1cb6d6.netlify.app', 
-//     credentials: true, // Allow credentials to be sent
-// }))
+app.use(cors({
+      origin: 'http://localhost:5173', 
+    credentials: true, // Allow credentials to be sent
+}))
 
 app.use('/api/users',userRouter)
 
